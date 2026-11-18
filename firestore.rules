@@ -1,0 +1,15 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Multi-tenant isolation: each agency tenant owns its subcollection of client registrations
+    match /agencies/{agencyId} {
+      allow read, write: if request.auth != null
+        && (request.auth.token.agencyIds == null || agencyId in request.auth.token.agencyIds);
+
+      match /clients/{clientId} {
+        allow read, write: if request.auth != null
+          && (request.auth.token.agencyIds == null || agencyId in request.auth.token.agencyIds);
+      }
+    }
+  }
+}
