@@ -1,36 +1,50 @@
 :root {
-  --bg-canvas: #f8fafc;
+  /* Spartan Flag Palette */
+  --spartan-crimson: #8f0d16;
+  --spartan-crimson-hover: #720a11;
+  --spartan-crimson-soft: #fdf2f3;
+
+  --spartan-navy: #202a4c;
+  --spartan-navy-hover: #171f39;
+  --spartan-navy-soft: #e8ecf7;
+
+  --spartan-gold: #dfad10;
+  --spartan-gold-ink: #8a6900;
+  --spartan-gold-soft: #fdf7e3;
+
+  --bg-canvas: #f7f8fb;
   --bg-surface: #ffffff;
-  --bg-subtle: #f1f5f9;
-  --bg-hover: #f8fafc;
+  --bg-subtle: #edf0f7;
+  --bg-hover: #f2f4fa;
 
-  --ink-primary: #0f172a;
-  --ink-secondary: #475569;
-  --ink-muted: #64748b;
+  --ink-primary: #202a4c;
+  --ink-secondary: #434d6e;
+  --ink-muted: #667091;
 
-  --border-subtle: #e2e8f0;
-  --border-strong: #cbd5e1;
+  --border-subtle: #dde2ee;
+  --border-strong: #c4ccdf;
 
-  --accent-emerald: #10a37f;
-  --accent-emerald-hover: #0d8c6c;
-  --accent-emerald-soft: #ecfdf5;
+  --accent-emerald: var(--spartan-crimson);
+  --accent-emerald-hover: var(--spartan-crimson-hover);
+  --accent-emerald-soft: var(--spartan-crimson-soft);
 
-  --accent-blue: #0284c7;
-  --accent-blue-soft: #e0f2fe;
+  --accent-blue: var(--spartan-navy);
+  --accent-blue-soft: var(--spartan-navy-soft);
 
-  --accent-amber: #d97706;
-  --accent-amber-soft: #fef3c7;
+  --accent-amber: var(--spartan-gold);
+  --accent-amber-ink: var(--spartan-gold-ink);
+  --accent-amber-soft: var(--spartan-gold-soft);
 
-  --accent-red: #dc2626;
-  --accent-red-soft: #fee2e2;
+  --accent-red: #8f0d16;
+  --accent-red-soft: #fae6e8;
 
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 14px;
 
-  --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.04);
-  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
-  --shadow-md: 0 10px 25px -5px rgba(15, 23, 42, 0.1), 0 4px 10px -4px rgba(15, 23, 42, 0.05);
+  --shadow-xs: 0 1px 2px rgba(32, 42, 76, 0.05);
+  --shadow-sm: 0 1px 3px rgba(32, 42, 76, 0.08), 0 1px 2px rgba(32, 42, 76, 0.05);
+  --shadow-md: 0 10px 25px -5px rgba(32, 42, 76, 0.14), 0 4px 10px -4px rgba(32, 42, 76, 0.07);
 
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -86,16 +100,18 @@ textarea {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 18px 18px 14px;
-  border-bottom: 1px solid var(--border-subtle);
+  padding: 18px 18px 15px;
+  background: var(--spartan-navy);
+  border-bottom: 2px solid var(--spartan-gold);
 }
 
 .brand-mark {
   width: 34px;
   height: 34px;
   border-radius: var(--radius-md);
-  background: var(--ink-primary);
-  color: #ffffff;
+  background: var(--spartan-crimson);
+  color: var(--spartan-gold);
+  border: 1px solid rgba(223, 173, 16, 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -112,12 +128,17 @@ textarea {
   font-weight: 700;
   font-size: 14px;
   letter-spacing: -0.01em;
-  color: var(--ink-primary);
+  color: #ffffff;
 }
 
 .brand-sub {
   font-size: 11px;
-  color: var(--ink-muted);
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.sidebar-brand .icon-btn {
+  border-color: rgba(255, 255, 255, 0.22);
+  color: #ffffff;
 }
 
 .mobile-close-btn,
@@ -288,7 +309,7 @@ textarea {
 
 .client-list-item.is-selected {
   background: var(--accent-emerald-soft);
-  border-color: rgba(16, 163, 127, 0.25);
+  border-color: rgba(143, 13, 22, 0.28);
 }
 
 .client-item-top {
@@ -397,8 +418,8 @@ textarea {
 
 .firestore-pill.is-live {
   background: var(--accent-blue-soft);
-  border-color: rgba(2, 132, 199, 0.3);
-  color: #0369a1;
+  border-color: rgba(32, 42, 76, 0.3);
+  color: var(--spartan-navy);
 }
 
 /* KPI Grid */
@@ -436,7 +457,7 @@ textarea {
 }
 
 .kpi-amber {
-  color: var(--accent-amber);
+  color: var(--accent-amber-ink);
 }
 
 .kpi-foot {
@@ -492,7 +513,7 @@ textarea {
   padding: 3px 9px;
   border-radius: 999px;
   background: var(--accent-blue-soft);
-  color: #0369a1;
+  color: var(--spartan-navy);
   font-size: 12px;
   font-weight: 600;
 }
@@ -647,7 +668,7 @@ textarea {
 
 .step-action_required .step-indicator {
   background: var(--accent-amber-soft);
-  color: var(--accent-amber);
+  color: var(--accent-amber-ink);
 }
 
 .step-number-label {
@@ -808,7 +829,7 @@ textarea {
 .unsaved-pill {
   font-size: 12px;
   font-weight: 600;
-  color: var(--accent-amber);
+  color: var(--accent-amber-ink);
   background: var(--accent-amber-soft);
   padding: 4px 10px;
   border-radius: 999px;
@@ -922,7 +943,7 @@ textarea {
 .form-field textarea:focus {
   outline: none;
   border-color: var(--accent-emerald);
-  box-shadow: 0 0 0 3px rgba(16, 163, 127, 0.12);
+  box-shadow: 0 0 0 3px rgba(143, 13, 22, 0.14);
 }
 
 .mono-input,
@@ -998,7 +1019,7 @@ textarea {
   padding: 2px 7px;
   border-radius: 4px;
   background: var(--accent-blue-soft);
-  color: #0369a1;
+  color: var(--spartan-navy);
   text-align: center;
 }
 
@@ -1142,17 +1163,17 @@ textarea {
 
 .badge-success {
   background: var(--accent-emerald-soft);
-  color: #047857;
+  color: var(--spartan-crimson);
 }
 
 .badge-primary {
   background: var(--accent-blue-soft);
-  color: #0369a1;
+  color: var(--spartan-navy);
 }
 
 .badge-warning {
   background: var(--accent-amber-soft);
-  color: #b45309;
+  color: var(--accent-amber-ink);
 }
 
 .badge-neutral {
@@ -1278,7 +1299,7 @@ textarea {
 .modal-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(15, 23, 42, 0.45);
+  background: rgba(32, 42, 76, 0.5);
   backdrop-filter: blur(2px);
   display: flex;
   align-items: center;
@@ -1358,7 +1379,7 @@ textarea {
 
 .connection-banner.is-connected {
   background: var(--accent-emerald-soft);
-  color: #065f46;
+  color: var(--spartan-crimson);
 }
 
 .connection-banner-left {
@@ -1421,8 +1442,8 @@ textarea {
 .rules-preview pre {
   margin: 0;
   padding: 12px;
-  background: #0f172a;
-  color: #e2e8f0;
+  background: var(--spartan-navy);
+  color: #edf0f7;
   font-family: var(--font-mono);
   font-size: 11px;
   overflow-x: auto;
@@ -1455,7 +1476,7 @@ textarea {
   .mobile-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(15, 23, 42, 0.4);
+    background: rgba(32, 42, 76, 0.45);
     z-index: 25;
   }
 
@@ -1657,7 +1678,7 @@ textarea {
 }
 
 .text-amber {
-  color: var(--accent-amber);
+  color: var(--accent-amber-ink);
 }
 
 /* Eligibility Presets & Assessment */
@@ -1704,12 +1725,12 @@ textarea {
 
 .assessment-box.tone-success {
   background: var(--accent-emerald-soft);
-  border-color: rgba(16, 163, 127, 0.3);
+  border-color: rgba(143, 13, 22, 0.28);
 }
 
 .assessment-box.tone-warning {
   background: var(--accent-amber-soft);
-  border-color: rgba(217, 119, 6, 0.3);
+  border-color: rgba(223, 173, 16, 0.45);
 }
 
 .assessment-header {
